@@ -13,6 +13,12 @@ public class UrlQueueApp {
     private static String urlQueueHost;
     private static int urlQueuePort;
 
+    /**
+     * Este método espera um argumento: o nome do arquivo de configuração
+     * Ele lê o arquivo de configuração, cria uma instância de UrlQueue e a regista no RMI
+     * 
+     * @param args Os argumentos da linha de comando. O primeiro argumento deve ser o nome do arquivo de configuração
+     */
     public static void main(String[] args){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
         EntityManager em = emf.createEntityManager();
@@ -38,6 +44,11 @@ public class UrlQueueApp {
         }
     }
 
+    /**
+     * Este método lê as propriedades de configuração do arquivo especificado
+     * 
+     * @param fileName O nome do arquivo de configuração
+     */
     private static void readFileProperties(String fileName){
         File propFile = new File(fileName);
 

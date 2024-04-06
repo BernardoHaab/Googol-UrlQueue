@@ -13,18 +13,6 @@ public class UrlQueue extends UnicastRemoteObject implements IUrlQueue {
   private ConcurrentLinkedDeque<String> urls = new ConcurrentLinkedDeque<String>();
   private Set<String> knownUrls = new HashSet<>();
 
-  public static void main(String[] args) {
-    try {
-      UrlQueue urlQueue = new UrlQueue();
-      Registry registry = LocateRegistry.createRegistry(6666);
-      registry.rebind("urlQueue", urlQueue);
-
-      System.out.println("Queue ready.");
-    } catch (RemoteException re) {
-      System.out.println("Exception in UrlQueue.main: " + re);
-    }
-  }
-
   public UrlQueue() throws RemoteException {
     super();
     urls.add("http://www.yahoo.com");

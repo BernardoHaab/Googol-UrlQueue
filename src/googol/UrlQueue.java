@@ -43,4 +43,12 @@ public class UrlQueue extends UnicastRemoteObject implements IUrlQueue {
     knownUrls.add(url);
     System.out.println(urls);
   }
+
+  @Override
+  public void addUrl(String url) throws RemoteException {
+    System.out.println("Adding url first: " + url);
+    urls.add(url);
+    knownUrls.add(url);
+    System.out.println(urls);
+  }
 }

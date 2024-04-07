@@ -11,4 +11,6 @@ public interface IUrlQueue extends java.rmi.Remote {
   public int size() throws RemoteException;
 
   public void addUrlFirst(String url) throws RemoteException;
+
+  public void addUrl(String url) throws RemoteException;
 }

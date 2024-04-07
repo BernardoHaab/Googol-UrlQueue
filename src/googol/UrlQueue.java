@@ -17,11 +17,21 @@ public class UrlQueue extends UnicastRemoteObject implements IUrlQueue {
     // urls.add("http://www.yahoo.com");
   }
 
+  /**
+   * Busca próxima url para ser consumida por Downloaders
+   *
+   * @return Próxima url a ser baixada
+   */
   @Override
   public String getNextUrl() throws RemoteException {
     return urls.poll();
   }
 
+  /**
+   * Adiciona uma lista de página ao fim da fila caso a url não seja conhecida
+   *
+   * @param newUrls Lista de urls para serem adicionadas na fila
+   */
   @Override
   public void addUrls(List<String> newUrls) throws RemoteException {
     for (String url : newUrls) {
@@ -36,6 +46,11 @@ public class UrlQueue extends UnicastRemoteObject implements IUrlQueue {
     return urls.size();
   }
 
+  /**
+   * Adiciona url no início da fila, independente se a url é conhecida
+   *
+   * @param url Nova url
+   */
   @Override
   public void addUrlFirst(String url) throws RemoteException {
     System.out.println("Adding url first: " + url);
@@ -44,6 +59,11 @@ public class UrlQueue extends UnicastRemoteObject implements IUrlQueue {
     System.out.println(urls);
   }
 
+  /**
+   * Adiciona url no fim da fila, independente se a url é conhecida
+   *
+   * @param url Nova url
+   */
   @Override
   public void addUrl(String url) throws RemoteException {
     System.out.println("Adding url first: " + url);

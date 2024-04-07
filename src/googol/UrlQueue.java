@@ -1,7 +1,6 @@
+package googol;
 
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashSet;
 import java.util.List;
@@ -15,7 +14,7 @@ public class UrlQueue extends UnicastRemoteObject implements IUrlQueue {
 
   public UrlQueue() throws RemoteException {
     super();
-    urls.add("http://www.yahoo.com");
+    // urls.add("http://www.yahoo.com");
   }
 
   @Override
@@ -39,6 +38,9 @@ public class UrlQueue extends UnicastRemoteObject implements IUrlQueue {
 
   @Override
   public void addUrlFirst(String url) throws RemoteException {
+    System.out.println("Adding url first: " + url);
     urls.addFirst(url);
+    knownUrls.add(url);
+    System.out.println(urls);
   }
 }

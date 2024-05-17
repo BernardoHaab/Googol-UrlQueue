@@ -5,7 +5,7 @@
 Para executar o código já compilado o comando usado é:
 
 ```
-java -jar .\Gateway.jar .\lib\properties
+java -jar .\UrlQueue.jar .\lib\properties
 ```
 
 Caso seja necessário recompilar o código os comando utilizados são:
